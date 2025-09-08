@@ -9,13 +9,13 @@ import albumRouter from './src/routes/albumRoute.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Connect DB and Cloudinary
+// DB + Cloudinary connections
 connectDB();
 connectCloudinary();
 
-// ✅ Allow your frontend domain
+// ✅ FIX: Allow frontend domain
 app.use(cors({
-  origin: ["https://user-4-i8dy.onrender.com"], // frontend URL
+  origin: "https://user-4-i8dy.onrender.com",  // frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -27,10 +27,9 @@ app.use(express.json());
 app.use("/api/song", songRouter);
 app.use("/api/album", albumRouter);
 
-app.get('/', (req, res) => res.send("API Working"));
+app.get("/", (req, res) => res.send("API Working"));
 
-// Listen
+// Start server
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
-
