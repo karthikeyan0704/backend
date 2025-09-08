@@ -15,7 +15,7 @@ connectCloudinary();
 
 // ✅ FIX: Allow frontend domain
 app.use(cors({
-  origin: "https://user-4-i8dy.onrender.com",  // frontend URL
+  origin: "https://user-5-cl0b.onrender.com/",  // frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -33,3 +33,4 @@ app.get("/", (req, res) => res.send("API Working"));
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
+
